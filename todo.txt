@@ -1,0 +1,30 @@
+Что нужно сделать для жизни такой?
+1. weather service
+2. docker + container
+3. tcp guess game
+4. weather auth service
+5. weather balancer
+6. redis for weather (TBC)
+7. kafka (TBC)
+8. monitoring (TBC)
+
+9. Первый колоквиум
+10. Второй колоквиум
+
+За каждое задание по 10 баллов
+    3   4   5
+  50% 75% 90%
+
+Итог сейчас
+Задание Балл 
+1       0
+2       0
+3       0
+4       0
+5       0
+9       0
+6       0
+7       0
+8       0
+10      0
+Сумма   0
