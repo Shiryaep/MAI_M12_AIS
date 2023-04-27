@@ -3,13 +3,9 @@ import urllib.request
 city = input()
 
 #contents = urllib.request.urlopen("http://google.com").read()
-getString = "http://wttr.in/"
-getString += city + "?format="
-getString += "\""
-getStringCorrectFormat = getString + "%l:%t"
-getString += "%l:+%C+%t+%p+%T"
-getString += "\""
-getStringCorrectFormat +=  "\""
+getString = "http://wttr.in/" + city + "?format=\""
+getStringCorrectFormat = getString + "%l:%t\""
+getString += "%l:+%C+%t+%p+%T\""
 
 #print(getString)
 

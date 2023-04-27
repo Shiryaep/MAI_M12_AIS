@@ -28,3 +28,9 @@
 8       0
 10      0
 Сумма   0
+
+
+Сайт для демонстрации
+http://localhost:5015/forecast/city=Moscow&dt=1
+Сайт для демонстрации в curl
+http://localhost:5015/forecast/city=Moscow\&dt=1
