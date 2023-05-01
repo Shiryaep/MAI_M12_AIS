@@ -12,9 +12,10 @@ def query_example(city, dt):
     # if key doesn't exist, second way returns a 400 error
     #language = request.args.get('city')
     #language = 'hey'
-    weather = ws.getWeatherByCity(city)
+    weather = ws.getWeatherByCityV2(city)
 
-    return '''Weather is {}'''.format(weather)
+    #return '''Weather is {}'''.format(weather)
+    return weather
     #return 'Query String Example'
 
 
