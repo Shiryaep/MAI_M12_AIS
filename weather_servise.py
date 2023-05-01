@@ -2,10 +2,16 @@ import urllib.request
 import json
 from geopy.geocoders import Nominatim
 
-def getWeatherByCity(city):
-    getStr = "http://wttr.in/" + city + "?format=\"" + "%l:%t\""
-    contents = urllib.request.urlopen(getStr).read()
-    return contents.decode('utf-8', 'ignore')
+def getForecastByCity(city, dt):
+    data = getWeatherJSON(city)
+    num = -1
+    for i in range(len(data['hourly']['time'])):
+        if data['hourly']['time'][i] == dt:
+            num = i
+    if num < 0:
+        return "There is no weather for this date"
+    returnValue = {"city": city, "unit":"celsius", "temperature":data['hourly']['temperature_2m'][num]}
+    return returnValue
 
 def getWeatherByCityV2(city):
     data = getWeatherJSON(city)

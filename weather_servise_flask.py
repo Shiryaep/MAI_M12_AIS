@@ -6,17 +6,15 @@ import weather_servise as ws
 app = Flask(__name__)
 
 @app.route('/forecast/city=<city>&dt=<dt>')
-def query_example(city, dt):
-    # if key doesn't exist, returns None
-    #you can also use lang = request.args['language']
-    # if key doesn't exist, second way returns a 400 error
-    #language = request.args.get('city')
-    #language = 'hey'
-    weather = ws.getWeatherByCityV2(city)
-
-    #return '''Weather is {}'''.format(weather)
+def forecast(city, dt):
+    weather = ws.getForecastByCity(city, dt)
     return weather
-    #return 'Query String Example'
+
+@app.route('/current/city=<city>')
+def current(city):
+    weather = ws.getWeatherByCityV2(city)
+    return weather
+    
 
 
 if __name__ == '__main__':
