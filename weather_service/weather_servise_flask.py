@@ -1,6 +1,5 @@
 from flask import Flask, request
-import urllib.request
-import weather_servise as ws
+import weather_servise_func as ws
 
 
 app = Flask(__name__)
