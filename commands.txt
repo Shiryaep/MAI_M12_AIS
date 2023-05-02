@@ -10,3 +10,6 @@ http://localhost:5015/current/city=Moscow
 curl http://localhost:5015/forecast/city=Moscow\&dt=2023-05-04T10:00
 curl http://localhost:5015/forecast/city=Moscow\&dt=2023-05-06T11:00
 curl http://localhost:5015/current/city=Moscow
+
+Создание контейнера docker
+sudo docker build -t weather_service:v0.1 weather_service/
