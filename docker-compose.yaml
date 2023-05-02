@@ -3,6 +3,6 @@ services:
   weather:
     build: weather_service/
     ports:
-      - 5015:5015
+      - ${PORT}:${PORT}
     environment:
-      - PORT=5015
+      - PORT=${PORT}
