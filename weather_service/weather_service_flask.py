@@ -18,4 +18,5 @@ def current(city):
 
 
 if __name__ == '__main__':
+    #print(os.getenv("PORT"))
     app.run(debug=True, host='0.0.0.0', port=os.getenv("PORT"))

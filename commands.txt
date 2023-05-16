@@ -11,6 +11,13 @@ curl http://localhost:5015/forecast/city=Moscow\&dt=2023-05-04T10:00
 curl http://localhost:5015/forecast/city=Moscow\&dt=2023-05-06T11:00
 curl http://localhost:5015/current/city=Moscow
 
+Быстро добраться до папки в терминале
+cd Programming/AIS
+cd Programming/AIS/weather_service
+cd Programming/AIS/Guess_game
+
+
+
 Создание контейнера docker
 sudo docker build -t weather_service:v0.1 weather_service/
 
