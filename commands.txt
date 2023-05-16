@@ -16,6 +16,8 @@ cd Programming/AIS
 cd Programming/AIS/weather_service
 cd Programming/AIS/Guess_game
 
+Штука проверяет работоспособность игры угадайки 
+nc 127.0.1.1 5017
 
 
 Создание контейнера docker

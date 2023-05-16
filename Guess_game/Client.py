@@ -1,7 +1,7 @@
 import socket
 
-HOST = "127.0.1.1"  # The server's hostname or IP address
-PORT = 5017  # The port used by the server
+HOST = "127.0.1.1"  
+PORT = 5017  
 
 def printRules():
     print("This is simple guess game for numbers from 0 to 100")

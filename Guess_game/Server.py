@@ -1,8 +1,8 @@
 import socket
 import random
 
-HOST = "127.0.1.1"  # Standard loopback interface address (localhost)
-PORT = 5017  # Port to listen on (non-privileged ports are > 1023)
+HOST = "127.0.1.1"  
+PORT = 5017  
 
 def nextMove(curNum, corrNum):
     if(curNum == corrNum):
