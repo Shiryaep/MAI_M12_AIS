@@ -6,7 +6,7 @@ done  2. docker + container
       6. redis for weather (TBC)
       8. monitoring (TBC)
 
-      3. tcp guess game
+done  3. tcp guess game
       7. kafka (TBC)
 
 done  9. Первый колоквиум
