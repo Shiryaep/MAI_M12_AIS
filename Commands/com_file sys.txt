@@ -1,0 +1,8 @@
+Переменные окружения для python
+Активировать -> source /home/paul/Programming/AIS/flaskVenv/bin/activate
+Деактивировать -> deactivate
+
+Быстро добраться до папки в терминале
+cd Programming/AIS
+cd Programming/AIS/weather_service
+cd Programming/AIS/Guess_game
