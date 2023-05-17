@@ -1,9 +1,11 @@
 from flask import Flask, request
 import weather_service_func as ws
+from prometheus_flask_exporter import PrometheusMetrics
 import os
 
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 @app.route('/forecast/city=<city>&dt=<dt>')
 def forecast(city, dt):
@@ -19,4 +21,4 @@ def current(city):
 
 if __name__ == '__main__':
     #print(os.getenv("PORT"))
-    app.run(debug=True, host='0.0.0.0', port=os.getenv("PORT"))
+    app.run(host='0.0.0.0', port=os.getenv("PORT"))

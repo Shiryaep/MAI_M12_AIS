@@ -1,0 +1,17 @@
+Создание контейнера docker -> sudo docker build -t weather_service:v0.1 weather_service/
+Просмотр доступных образов docker -> sudo docker images
+Просмотр работающих контейнеров docker -> sudo docker ps -a
+
+Запуск контейнера -> sudo docker run -d -p 5015:5015 weather_service:v0.1
+
+Остановка контейнера -> sudo docker stop __id__
+Удаление контейнера -> sudo docker rm __id__
+
+Docker Compose Запуск с логами -> docker-compose up 
+Без логов -> docker-compose up -d
+Посмотреть логи -> docker-compose logs (имя сервиса)
+
+И создать и запустить контейнеры
+docker-compose up --build
+
+Есть две разные вещи - окружение для контейнера и окружение для докер композа
