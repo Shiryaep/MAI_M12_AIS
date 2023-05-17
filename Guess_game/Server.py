@@ -6,14 +6,15 @@ PORT = 5017
 
 def nextMove(curNum, corrNum):
     if(curNum == corrNum):
-        return "equal"
+        return "EQUAL"
     if(curNum < corrNum):
-        return "more"
+        return "MORE"
     if(curNum > corrNum):
-        return "less"
+        return "LESS"
 
 def getIntData(data):
     retValue = data.decode()
+    retValue = retValue[6:]
     return int(retValue)
 
 def getCodeData(answer):

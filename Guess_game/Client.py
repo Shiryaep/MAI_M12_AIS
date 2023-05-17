@@ -8,38 +8,41 @@ def printRules():
     print("You will present number and server will answer")
     print("[more] if your number less then correct")
     print("[less] if your number more then correct")
-    print("Lets get started!")
+    print("Try with command *Guess NUM* like *Guess 50*")
     print()
 
 
 def getAnswer():
     isOk = False
     while(not(isOk)):
-        print("Try your number", end=' :')
-        inputNum = int(input())
-        if (inputNum > 100) or (inputNum < 0):
-            print("READ RULES!!!!!!!!!!!!!!!!!!!")
-            printRules()
-            isOk = False
+        answer = input()
+        if(not(answer[6:].isdigit()) or (answer[:5] != "Guess")):
+            print("Wrong command")
         else:
-            isOk = True
-    return inputNum
+            inputNum = int(answer[6:])
+            if (inputNum > 100) or (inputNum < 0):
+                print("READ RULES!!!!!!!!!!!!!!!!!!!")
+                printRules()
+                isOk = False
+            else:
+                isOk = True
+    return answer
 
 def decodeData(data):
     return data.decode()
 
 if (__name__ == "__main__"):
     printRules()
-    num = getAnswer()
+    command = getAnswer()
     count = 1
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
-        s.sendall(str(num).encode())
+        s.sendall(command.encode())
         data = s.recv(1024)
-        while (decodeData(data) != "equal"):
+        while (decodeData(data) != "EQUAL"):
             print("Server says: " + decodeData(data))
-            num = getAnswer()
-            s.sendall(str(num).encode())
+            command = getAnswer()
+            s.sendall(command.encode())
             data = s.recv(1024)
             count+=1
     print(f"Great shot! Used " + str(count) + " attempt(s)")
