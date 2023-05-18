@@ -7,6 +7,8 @@ services:
     environment:
       - PORT=${PORT}
       - URL=${URL}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_SERVER=${REDIS_SERVER}
   weather2:
     build: weather_service/
     ports:
@@ -14,6 +16,8 @@ services:
     environment:
       - PORT=${PORT}
       - URL=${URL}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_SERVER=${REDIS_SERVER}
   balancer:
     build: Load_balancer/
     ports:
@@ -32,3 +36,45 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
+  
+  redis-1:
+    image: redis
+    container_name: redis-1
+    ports:
+      - ${REDIS_PORT}
+    command: [ "redis-server", "--port ${REDIS_PORT}" ]
+
+  redis-2:
+    image: redis
+    container_name: redis-2
+    ports:
+      - ${REDIS_PORT}
+    command: [ "redis-server", "--port ${REDIS_PORT}" ]
+
+  redis-3:
+    image: redis
+    container_name: redis-3
+    ports:
+      - ${REDIS_PORT}
+    command: [ "redis-server", "--port ${REDIS_PORT}" , "--slaveof", "redis-1", "${REDIS_PORT}" ]
+
+  redis-4:
+    image: redis
+    container_name: redis-4
+    ports:
+      - ${REDIS_PORT}
+    command: [ "redis-server", "--port ${REDIS_PORT}" , "--slaveof", "redis-2", "${REDIS_PORT}" ]
+
+  twem-proxy:
+    image: tarantool/twemproxy
+    command:
+      - --verbose=11
+    volumes:
+      - ./nutcracker.yml:/conf/nutcracker.yml
+    depends_on:
+      - redis-1
+      - redis-2
+      - redis-3
+      - redis-4
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}

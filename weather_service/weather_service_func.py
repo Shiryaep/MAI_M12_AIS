@@ -2,6 +2,7 @@ import urllib.request
 import json
 import os
 from geopy.geocoders import Nominatim
+import redis
 
 
 def getForecastByCity(city, dt):

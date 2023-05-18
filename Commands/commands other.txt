@@ -8,14 +8,18 @@ https://github.com/rycus86/prometheus_flask_exporter/tree/master/examples/sample
 
 
 
+curl -X PUT "http://localhost:5000/v1/save/?key=key&value=value"
 
 
+curl --header "Content-Type: application/json" \
+  --request PUT \
+  --data '{"key":"key","value":"value"}' \
+  http://localhost:5000/save/
 
-
-
-
-
-
+  curl --header "Content-Type: application/json" \
+  --request PUT \
+  --data '{"key":"Moscow/2023-05-19T11:00","value":"xxx"}' \
+  http://localhost:5000/save/
 
 
 
