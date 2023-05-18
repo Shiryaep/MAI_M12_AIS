@@ -1,11 +1,26 @@
 version: "3.8"
 services:
-  weather:
+  weather1:
     build: weather_service/
     ports:
-      - ${PORT}:${PORT}
+      - 5001:${PORT}
     environment:
       - PORT=${PORT}
+      - URL=${URL}
+  weather2:
+    build: weather_service/
+    ports:
+      - 5002:${PORT}
+    environment:
+      - PORT=${PORT}
+      - URL=${URL}
+  balancer:
+    build: Load_balancer/
+    ports:
+        - 5000:5000         
+    depends_on:
+        - weather1
+        - weather2
   prometheus:
     container_name: prometheus
     hostname: prometheus

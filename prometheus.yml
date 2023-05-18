@@ -3,4 +3,4 @@ scrape_configs:
     metrics_path: '/metrics'
     scrape_interval: 5s
     static_configs:
-      - targets: ['weather:5015']
+      - targets: ['weather1:5015', 'weather2:5015']

@@ -22,7 +22,6 @@ def current():
         abort(500)
     weather = ws.getWeatherByCityV2(city)
     return weather
-    
 
 
 if __name__ == '__main__':
