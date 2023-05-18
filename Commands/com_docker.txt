@@ -18,8 +18,12 @@ Docker Compose Запуск с логами -> docker-compose up
 
 
 И создать и запустить контейнеры
-docker-compose up -d --build
+sudo docker-compose up -d --build
 
 Посмотреть логи
-docker-compose logs weather1
-docker-compose logs weather2
+sudo docker-compose logs weather1
+sudo docker-compose logs weather2
+
+Остановить контейнеры
+sudo docker-compose stop
+sudo docker-compose down
