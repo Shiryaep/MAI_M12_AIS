@@ -1,6 +1,8 @@
 import urllib.request
 import json
+import os
 from geopy.geocoders import Nominatim
+
 
 def getForecastByCity(city, dt):
     data = getWeatherJSON(city)
@@ -10,20 +12,24 @@ def getForecastByCity(city, dt):
             num = i
     if num < 0:
         return "There is no weather for this date"
-    returnValue = {"city": city, "unit":"celsius", "temperature":data['hourly']['temperature_2m'][num]}
+    returnValue = {"city": city, "unit": "celsius",
+                   "temperature": data['hourly']['temperature_2m'][num]}
     return returnValue
+
 
 def getWeatherByCityV2(city):
     data = getWeatherJSON(city)
-    returnValue = {"city": city, "unit":"celsius", "temperature":data['current_weather']['temperature']}
+    returnValue = {"city": city, "unit": "celsius",
+                   "temperature": data['current_weather']['temperature']}
     return returnValue
+
 
 def getWeatherJSON(city):
     geolocator = Nominatim(user_agent="MyApp")
     location = geolocator.geocode(city)
-    webRequest = '''https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&current_weather=true&windspeed_unit=ms&forecast_days=7&timezone=Europe%2FMoscow'''.format(location.latitude, location.longitude)
+    webRequest = f'''{os.getenv("URL")}?latitude={location.latitude}&longitude={location.longitude}&hourly=temperature_2m&current_weather=true&windspeed_unit=ms&forecast_days=7&timezone=Europe%2FMoscow'''
     contents = urllib.request.urlopen(webRequest).read()
-    my_json = contents.decode('utf-8').replace("'",'"')
+    my_json = contents.decode('utf-8').replace("'", '"')
     data = json.loads(my_json)
     return data
 
@@ -35,9 +41,9 @@ if (__name__ == "__main__"):
     print("The latitude of the location is: ", location.latitude)
     print("The longitude of the location is: ", location.longitude)
 
-    webRequest = '''https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&hourly=temperature_2m&current_weather=true&windspeed_unit=ms&forecast_days=1&timezone=Europe%2FMoscow'''.format(location.latitude, location.longitude)
+    webRequest = f'''{os.getenv("URL")}?latitude={location.latitude}&longitude={location.longitude}&hourly=temperature_2m&current_weather=true&windspeed_unit=ms&forecast_days=1&timezone=Europe%2FMoscow'''
     contents = urllib.request.urlopen(webRequest).read()
-    my_json = contents.decode('utf-8').replace("'",'"')
+    my_json = contents.decode('utf-8').replace("'", '"')
     print(my_json)
     print('- ' * 20)
     data = json.loads(my_json)
