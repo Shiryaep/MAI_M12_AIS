@@ -2,12 +2,12 @@
 done  1. weather service
 done  2. docker + container
       4. weather auth service
-      5. weather balancer
+done  5. weather balancer
       6. redis for weather (TBC)
-      8. monitoring (TBC)
+done  8. monitoring (TBC)
 
 done  3. tcp guess game
-      7. kafka (TBC)
+done  7. kafka (TBC)
 
 done  9. Первый колоквиум
 done  10. Второй колоквиум
@@ -17,15 +17,15 @@ done  10. Второй колоквиум
   50% 75% 90%
 
 Итог сейчас
-Задание Балл 
-1       10
-2       10
-3       0
-4       0
-5       0
-9       10
-6       0
-7       0
-8       0
-10      10
+Задание Балл    Название
+1       10      weather service
+2       10      docker + container
+3       0!      tcp guess game
+4       0       weather auth service
+5       0!      weather balancer
+9       10      Первый колоквиум
+6       0       redis for weather (TBC)
+7       0!      kafka (TBC)
+8       0!      monitoring (TBC)
+10      10      Второй колоквиум
 Сумма   40
