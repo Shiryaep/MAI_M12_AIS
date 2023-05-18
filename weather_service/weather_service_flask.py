@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 import weather_service_func as ws
 from prometheus_flask_exporter import PrometheusMetrics
 import os
@@ -7,13 +7,19 @@ import os
 app = Flask(__name__)
 metrics = PrometheusMetrics(app)
 
-@app.route('/forecast/city=<city>&dt=<dt>')
-def forecast(city, dt):
+@app.route('/forecast/')
+def forecast():
+    city, dt = request.args.get("city"), request.args.get("dt")
+    if not city or not dt:
+        abort(500)
     weather = ws.getForecastByCity(city, dt)
     return weather
 
-@app.route('/current/city=<city>')
-def current(city):
+@app.route('/current/')
+def current():
+    city = request.args.get("city")
+    if not city:
+        abort(500)
     weather = ws.getWeatherByCityV2(city)
     return weather
     
