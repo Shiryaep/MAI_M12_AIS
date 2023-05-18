@@ -6,3 +6,4 @@
 cd Programming/AIS
 cd Programming/AIS/weather_service
 cd Programming/AIS/Guess_game
+cd Programming/AIS/Kafka
