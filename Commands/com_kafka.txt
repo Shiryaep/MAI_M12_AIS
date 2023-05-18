@@ -1,4 +1,4 @@
 Запуск kafka -> sudo docker-compose up -d --build
-Запуск consumer -> sudo docker-compose --profile run up consumer
+Запуск consumer -> sudo docker-compose --profile run up -d consumer
 Запуск producer -> sudo docker-compose --profile run up producer
 Просмотр логов consumer -> sudo docker-compose logs consumer

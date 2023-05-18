@@ -20,12 +20,12 @@ done  10. Второй колоквиум
 Задание Балл    Название
 1       10      weather service
 2       10      docker + container
-3       0!      tcp guess game
+3       7!      tcp guess game
 4       0       weather auth service
-5       0!      weather balancer
+5       10      weather balancer
 9       10      Первый колоквиум
 6       0       redis for weather (TBC)
-7       0!      kafka (TBC)
-8       0!      monitoring (TBC)
+7       10      kafka (TBC)
+8       10      monitoring (TBC)
 10      10      Второй колоквиум
 Сумма   40
